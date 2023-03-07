@@ -3,20 +3,17 @@ package com.example.income_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-
 import com.example.income_app.Fragments.MainFragment;
 import com.example.income_app.databinding.ActivityMainBinding;
-
-import java.net.InetAddress;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setElevation(0);
 
-        FragmentManager fragment_manager = getSupportFragmentManager();
-        FragmentTransaction fragment_transition = fragment_manager.beginTransaction();
-        fragment_transition.replace(R.id.fragment_container_view,new MainFragment());
-        fragment_transition.commit();
+        c_fragment_manager.replace_fragment(R.id.fragment_container_view,new MainFragment(),this);
 
         if(!isNetworkAvailable(this)){
             new AlertDialog.Builder(this)

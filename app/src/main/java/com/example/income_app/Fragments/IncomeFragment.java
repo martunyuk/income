@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.income_app.R;
+import com.example.income_app.c_fragment_manager;
 import com.example.income_app.databinding.FragmentIncomeBinding;
 import com.example.income_app.c_group;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +43,6 @@ public class IncomeFragment extends Fragment {
         ((AppCompatActivity)requireActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         recycler_view = binding.recyclerView;
-        recycler_view.setOverScrollMode(View.OVER_SCROLL_NEVER);
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics();
         display.getMetrics(outMetrics);
@@ -92,11 +92,7 @@ public class IncomeFragment extends Fragment {
             holder.income_title.setText(groups.get(position).title);
             Picasso.get().load(groups.get(position).icon).into(holder.icon);
             holder.card_view.setOnClickListener(view -> {
-                FragmentManager fragment_manager = requireActivity().getSupportFragmentManager();
-                FragmentTransaction fragment_transition = fragment_manager.beginTransaction();
-                fragment_transition.addToBackStack(null);
-                fragment_transition.replace(R.id.fragment_container_view,GroupFragment.newInstance(groups.get(position)));
-                fragment_transition.commit();
+                c_fragment_manager.replace_fragment(R.id.fragment_container_view,GroupFragment.newInstance(groups.get(position)),getActivity(),true);
             });
         }
 
