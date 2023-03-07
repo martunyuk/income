@@ -11,9 +11,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.example.income_app.Fragments.MainFragment;
 import com.example.income_app.databinding.ActivityMainBinding;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     .setIcon(R.drawable.wifi_off)
                     .setCancelable(false)
                     .show();
-        }
-
+        } else MobileAds.initialize(this, initializationStatus -> {});
     }
 
     public boolean isNetworkAvailable(Context context) {

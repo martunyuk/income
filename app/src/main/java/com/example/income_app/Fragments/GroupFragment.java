@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import com.example.income_app.R;
+import com.example.income_app.c_ads_manager;
 import com.example.income_app.c_group;
 import com.example.income_app.databinding.FragmentGroupBinding;
 import java.util.List;
@@ -110,6 +111,7 @@ public class GroupFragment extends Fragment {
                 fragment_transition.commit();
             });
         } else if(group.html!=null) {
+            c_ads_manager.loadAd(getActivity());
             binding.listView.setVisibility(View.GONE);
             binding.htmlInfo.setText(Html.fromHtml(group.html));
             binding.htmlInfo.setMovementMethod(LinkMovementMethod.getInstance());
