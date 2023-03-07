@@ -1,17 +1,13 @@
-package com.example.income_app;
+package com.example.income_app.Fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.income_app.Fragments.IncomeFragment;
-import com.example.income_app.Fragments.SettingsFragment;
+import com.example.income_app.R;
 import com.example.income_app.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {

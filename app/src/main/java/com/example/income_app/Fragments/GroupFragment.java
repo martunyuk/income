@@ -1,4 +1,4 @@
-package com.example.income_app;
+package com.example.income_app.Fragments;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import com.example.income_app.R;
+import com.example.income_app.c_group;
 import com.example.income_app.databinding.FragmentGroupBinding;
 import java.util.List;
 

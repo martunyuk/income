@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.income_app.GroupFragment;
 import com.example.income_app.R;
 import com.example.income_app.databinding.FragmentIncomeBinding;
 import com.example.income_app.c_group;

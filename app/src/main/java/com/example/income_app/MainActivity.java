@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.example.income_app.Fragments.MainFragment;
 import com.example.income_app.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
