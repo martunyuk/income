@@ -15,19 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <ScrollView
+        <WebView
+            android:id="@+id/web_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/html_info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:padding="10dp"/>
-
-        </ScrollView>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

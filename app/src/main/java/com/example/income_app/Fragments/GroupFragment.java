@@ -9,8 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,10 +109,10 @@ public class GroupFragment extends Fragment {
                 fragment_transition.commit();
             });
         } else if(group.html!=null) {
-            c_ads_manager.loadAd(getActivity());
+//            c_ads_manager.loadAd(getActivity());
             binding.listView.setVisibility(View.GONE);
-            binding.htmlInfo.setText(Html.fromHtml(group.html));
-            binding.htmlInfo.setMovementMethod(LinkMovementMethod.getInstance());
+            binding.webView.getSettings().setJavaScriptEnabled(true);
+            binding.webView.loadData(group.html, "text/html; charset=utf-8", "UTF-8");
         }
 
         return binding.getRoot();
