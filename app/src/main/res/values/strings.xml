@@ -4,4 +4,10 @@
     <string name="settings">Налаштування</string>
     <string name="no_internet">Немає інтернету</string>
     <string name="no_internet_desc">Переконайтесь, що ваш пристрій під\'єднаний до інтернету та спробуте знову</string>
+    <string name="about_app">Про додаток</string>
+    <string name="exiting_the_app">Вихід з додатку</string>
+    <string name="are_you_sure_you_want_to_exit">Ви справді хочете вийти?</string>
+    <string name="yes">Так</string>
+    <string name="no">Ні</string>
+    <string name="ok">Гаразд</string>
 </resources>

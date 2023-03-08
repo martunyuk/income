@@ -15,7 +15,7 @@ public class c_ads_manager {
     private static InterstitialAd mInterstitialAd;
     private static final String TAG = "ADS_LOG";
 
-    public static void loadAd(Activity activity) {
+    public static void show_ad(Activity activity) {
         AdRequest adRequest = new AdRequest.Builder().build();
 
         InterstitialAd.load(activity,"ca-app-pub-3940256099942544/1033173712", adRequest,

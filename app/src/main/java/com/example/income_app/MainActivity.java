@@ -1,49 +1,71 @@
 package com.example.income_app;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
 import com.example.income_app.Fragments.MainFragment;
 import com.example.income_app.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    @SuppressLint("StaticFieldLeak")
+    public static ActivityMainBinding binding;
+    final private MainFragment main_fragment = new MainFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().setElevation(0);
 
-        c_fragment_manager.replace_fragment(R.id.fragment_container_view,new MainFragment(),this);
+        binding.backBtn.setOnClickListener(view -> onBackPressed());
+
+        c_fragment_manager.replace_fragment(R.id.fragment_container_view,main_fragment,this);
 
         if(!isNetworkAvailable(this)){
             new AlertDialog.Builder(this)
                     .setTitle(R.string.no_internet)
                     .setMessage(R.string.no_internet_desc)
-                    .setPositiveButton(android.R.string.yes, (dialog, which) -> finish())
+                    .setPositiveButton(R.string.ok, (dialog, which) -> finish())
                     .setIcon(R.drawable.wifi_off)
                     .setCancelable(false)
                     .show();
         } else MobileAds.initialize(this, initializationStatus -> {});
     }
 
+    public static void change_title(String title, boolean show_back_btn){
+        binding.title.setText(title);
+        binding.backBtn.setVisibility(show_back_btn?View.VISIBLE:View.INVISIBLE);
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onBackPressed() {
+        if(main_fragment.isVisible()) {
+            switch (main_fragment.binding.bottomNavigationView.getSelectedItemId()){
+                case R.id.income:
+                    new AlertDialog.Builder(this)
+                            .setTitle(R.string.exiting_the_app)
+                            .setMessage(R.string.are_you_sure_you_want_to_exit)
+                            .setPositiveButton(R.string.yes, (dialog, whichButton) -> {
+                                finish();
+                                dialog.dismiss();
+                            }).setNegativeButton(R.string.no, (dialog, whichButton) -> dialog.dismiss()).show();
+                    break;
+                case R.id.settings:
+                    main_fragment.binding.bottomNavigationView.setSelectedItemId(R.id.income);
+                    break;
+            }
+        } else super.onBackPressed();
+    }
+
     public boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==android.R.id.home)
-            onBackPressed();
-        return super.onOptionsItemSelected(item);
     }
 }

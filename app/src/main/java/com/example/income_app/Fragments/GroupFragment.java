@@ -1,20 +1,23 @@
 package com.example.income_app.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import com.example.income_app.MainActivity;
 import com.example.income_app.R;
 import com.example.income_app.c_ads_manager;
+import com.example.income_app.c_fragment_manager;
 import com.example.income_app.c_group;
 import com.example.income_app.databinding.FragmentGroupBinding;
 import java.util.List;
@@ -83,14 +86,16 @@ public class GroupFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentGroupBinding.inflate(getLayoutInflater());
-        requireActivity().setTitle(group.title);
-        ((AppCompatActivity)requireActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        MainActivity.change_title(group.title,true);
 
         if(group.subgroups !=null){
+            binding.listView.setVisibility(View.VISIBLE);
+            binding.webView.setVisibility(View.GONE);
             String[] options = new String[group.subgroups.size()];
             for (int x = 0; x<group.subgroups.size(); x++){
                 options[x] = group.subgroups.get(x).title;
@@ -101,18 +106,15 @@ public class GroupFragment extends Fragment {
 
             binding.listView.setAdapter(adapter);
 
-            binding.listView.setOnItemClickListener((adapterView, view, i, l) -> {
-                FragmentManager fragment_manager = requireActivity().getSupportFragmentManager();
-                FragmentTransaction fragment_transition = fragment_manager.beginTransaction();
-                fragment_transition.addToBackStack(null);
-                fragment_transition.replace(R.id.fragment_container_view,GroupFragment.newInstance(new c_group(group.subgroups.get(i).title,group.subgroups.get(i).subgroups,group.subgroups.get(i).html,group.subgroups.get(i).icon)));
-                fragment_transition.commit();
-            });
+            binding.listView.setOnItemClickListener((adapterView, view, i, l) -> c_fragment_manager.replace_fragment(R.id.fragment_container_view,GroupFragment.newInstance(new c_group(group.subgroups.get(i).title,group.subgroups.get(i).subgroups,group.subgroups.get(i).html,group.subgroups.get(i).icon)),getActivity(),true));
         } else if(group.html!=null) {
-//            c_ads_manager.loadAd(getActivity());
             binding.listView.setVisibility(View.GONE);
+            binding.webView.setVisibility(View.VISIBLE);
             binding.webView.getSettings().setJavaScriptEnabled(true);
             binding.webView.loadData(group.html, "text/html; charset=utf-8", "UTF-8");
+            if(WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING))
+                WebSettingsCompat.setAlgorithmicDarkeningAllowed(binding.webView.getSettings(), true);
+            c_ads_manager.show_ad(getActivity());
         }
 
         return binding.getRoot();

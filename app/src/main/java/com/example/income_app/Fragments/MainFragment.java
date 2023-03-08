@@ -1,6 +1,8 @@
 package com.example.income_app.Fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +13,12 @@ import com.example.income_app.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
 
-    int selected_item_id;
-    FragmentMainBinding binding;
+    private int selected_item_id;
+    public FragmentMainBinding binding;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMainBinding.inflate(getLayoutInflater());
 
