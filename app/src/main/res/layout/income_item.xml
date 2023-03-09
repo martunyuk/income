@@ -13,7 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="3dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -21,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/income_title"
             android:tint="@color/black"
-            android:padding="5dp"
+            android:layout_marginBottom="5dp"
             tools:ignore="UseAppTint" />
 
         <TextView
@@ -34,6 +35,8 @@
             android:layout_marginBottom="5dp"
             android:textStyle="bold"
             android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="Криптовалюта"/>
 
     </RelativeLayout>

@@ -7,32 +7,42 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/chevron_left"
-            android:layout_margin="5dp"
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:background="@android:color/transparent" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="@string/income"
             android:textColor="@color/main_color"
-            android:layout_margin="5dp"
-            android:textSize="30sp" />
+            android:layout_gravity="center_vertical"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="25sp"
+            tools:ignore="RtlCompat" />
 
-    </RelativeLayout>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chevron_left"
+            android:visibility="invisible"
+            android:background="@android:color/transparent" />
+
+    </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
