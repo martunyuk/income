@@ -2,6 +2,7 @@ package com.example.income_app;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                     .setCancelable(false)
                     .show();
         } else MobileAds.initialize(this, initializationStatus -> {});
+
+        c_database_helper dbHelper = new c_database_helper(this);
+        if(Boolean.parseBoolean(dbHelper.getData())) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     public static void change_title(String title, boolean show_back_btn){

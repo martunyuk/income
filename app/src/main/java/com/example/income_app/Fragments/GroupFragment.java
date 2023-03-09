@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -82,7 +81,7 @@ public class GroupFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments()!=null){
-            group = (c_group_serializable) getArguments().getParcelable("group");
+            group = getArguments().getParcelable("group");
         }
     }
 
