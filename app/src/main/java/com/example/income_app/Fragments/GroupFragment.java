@@ -109,10 +109,11 @@ public class GroupFragment extends Fragment {
         } else if(group.html!=null) {
             binding.listView.setVisibility(View.GONE);
             binding.webView.setVisibility(View.VISIBLE);
-            binding.webView.getSettings().setJavaScriptEnabled(true);
-            binding.webView.loadData(group.html, "text/html; charset=utf-8", "UTF-8");
             if(WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING))
                 WebSettingsCompat.setAlgorithmicDarkeningAllowed(binding.webView.getSettings(), true);
+            binding.webView.getSettings().setJavaScriptEnabled(true);
+            binding.webView.loadDataWithBaseURL(null, group.html, "text/html", "utf-8", null);
+
             c_ads_manager.show_ad(getActivity());
         }
 
