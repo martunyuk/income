@@ -1,4 +1,4 @@
-package com.example.income_app.Fragments;
+package com.vitaliy.income_app.Fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import com.example.income_app.MainActivity;
-import com.example.income_app.R;
-import com.example.income_app.c_ads_manager;
-import com.example.income_app.c_fragment_manager;
-import com.example.income_app.c_group;
-import com.example.income_app.databinding.FragmentGroupBinding;
+import com.vitaliy.income_app.MainActivity;
+import com.vitaliy.income_app.R;
+import com.vitaliy.income_app.c_ads_manager;
+import com.vitaliy.income_app.c_fragment_manager;
+import com.vitaliy.income_app.c_group;
+import com.vitaliy.income_app.databinding.FragmentGroupBinding;
 import java.util.List;
 
 public class GroupFragment extends Fragment {

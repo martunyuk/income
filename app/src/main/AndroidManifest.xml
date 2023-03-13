@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Income_app"
         tools:targetApi="31">
         <activity
-            android:name="com.example.income_app.MainActivity"
+            android:name="com.vitaliy.income_app.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

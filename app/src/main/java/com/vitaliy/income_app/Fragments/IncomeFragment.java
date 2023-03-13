@@ -1,4 +1,4 @@
-package com.example.income_app.Fragments;
+package com.vitaliy.income_app.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,11 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.income_app.MainActivity;
-import com.example.income_app.R;
-import com.example.income_app.c_fragment_manager;
-import com.example.income_app.databinding.FragmentIncomeBinding;
-import com.example.income_app.c_group;
+import com.vitaliy.income_app.MainActivity;
+import com.vitaliy.income_app.R;
+import com.vitaliy.income_app.c_fragment_manager;
+import com.vitaliy.income_app.databinding.FragmentIncomeBinding;
+import com.vitaliy.income_app.c_group;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

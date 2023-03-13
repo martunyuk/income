@@ -1,4 +1,4 @@
-package com.example.income_app;
+package com.vitaliy.income_app;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +8,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
-import com.example.income_app.Fragments.MainFragment;
-import com.example.income_app.databinding.ActivityMainBinding;
+import com.vitaliy.income_app.Fragments.MainFragment;
+import com.vitaliy.income_app.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {

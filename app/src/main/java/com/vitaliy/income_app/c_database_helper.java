@@ -1,4 +1,4 @@
-package com.example.income_app;
+package com.vitaliy.income_app;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;

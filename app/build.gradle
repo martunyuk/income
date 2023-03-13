@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.income_app'
+    namespace 'com.vitaliy.income_app'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.income_app"
+        applicationId "com.vitaliy.income_app"
         minSdk 24
         targetSdk 33
         versionCode 1

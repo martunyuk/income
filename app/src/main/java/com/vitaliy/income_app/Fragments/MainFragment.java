@@ -1,4 +1,4 @@
-package com.example.income_app.Fragments;
+package com.vitaliy.income_app.Fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.income_app.R;
-import com.example.income_app.c_fragment_manager;
-import com.example.income_app.databinding.FragmentMainBinding;
+import com.vitaliy.income_app.R;
+import com.vitaliy.income_app.c_fragment_manager;
+import com.vitaliy.income_app.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
 

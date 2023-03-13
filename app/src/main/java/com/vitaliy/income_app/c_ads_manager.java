@@ -1,4 +1,4 @@
-package com.example.income_app;
+package com.vitaliy.income_app;
 
 import android.app.Activity;
 import android.util.Log;
