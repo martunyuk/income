@@ -18,7 +18,7 @@ public class c_ads_manager {
     public static void show_ad(Activity activity) {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(activity,"ca-app-pub-5664810987820809/4354121863", adRequest,
+        InterstitialAd.load(activity,"ca-app-pub-9687909639330996/8878586580", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

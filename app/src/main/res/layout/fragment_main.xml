@@ -11,7 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bottom_navigation_panel"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9687909639330996/5958292661"
+        android:layout_marginBottom="10dp"/>
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_navigation_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

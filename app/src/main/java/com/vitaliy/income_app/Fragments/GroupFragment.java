@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import com.google.android.gms.ads.AdRequest;
 import com.vitaliy.income_app.MainActivity;
 import com.vitaliy.income_app.R;
 import com.vitaliy.income_app.c_ads_manager;
@@ -91,6 +92,8 @@ public class GroupFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentGroupBinding.inflate(getLayoutInflater());
         MainActivity.change_title(group.title,true);
+
+        binding.adView.loadAd(new AdRequest.Builder().build());
 
         if(group.subgroups !=null){
             binding.listView.setVisibility(View.VISIBLE);

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.google.android.gms.ads.AdRequest;
 import com.vitaliy.income_app.R;
 import com.vitaliy.income_app.c_fragment_manager;
 import com.vitaliy.income_app.databinding.FragmentMainBinding;
@@ -23,6 +24,8 @@ public class MainFragment extends Fragment {
         binding = FragmentMainBinding.inflate(getLayoutInflater());
 
         c_fragment_manager.replace_fragment(R.id.frame_layout,(selected_item_id==R.id.settings)?new SettingsFragment():new IncomeFragment(),requireActivity());
+
+        binding.adView.loadAd(new AdRequest.Builder().build());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
